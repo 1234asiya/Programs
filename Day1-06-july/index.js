@@ -1,22 +1,25 @@
 const express = require("express")
 const app = express()
 const path = require("path")
-var bodyParser = require('body-parser');  
-var urlencodedParser = bodyParser.urlencoded({ extended: false })  
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const PORT = 9000
-app.get("/post.html",(request,response)=>{
-    response.sendFile(path.join(__dirname,"./post.html"))
+let formidable = require("formidable")
+
+app.get("/", (request, response) => {
+    response.sendFile(path.join(__dirname, "./image.html"))
 })
-//http://localhost:9000/post.html------------------->you get html page like input submit  
-//http://localhost:9000/postpath-------------------->you get entered data
-app.post('/postpath', urlencodedParser, function (req, res) {    
-    response = {  
-        first_name:req.body.first_name,  
-        last_name:req.body.last_name  
-    };  
-    console.log(response);  
-    res.end(JSON.stringify(response));  
- })  
+
+app.post('/', (req, res) => {
+    const form = new formidable.IncomingForm()
+
+    form.parse(req)
+    form.on("fileBegin",(name,file)=>{
+        file.filepath=__dirname+"/uploads/"+file.originalFilename
+    })
+    res.sendFile(__dirname+"/image.html")
+});
+
 app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
 
 
