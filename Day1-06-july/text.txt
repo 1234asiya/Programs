@@ -1,0 +1,42 @@
+// Render html File
+Task 1
+
+const express = require("express")
+const app = express()
+const path = require("path")
+const PORT = 9001
+app.get("/:route", (request, response) => {
+    const param1=request.params["route"]
+    response.sendFile(path.join(__dirname + `/${param1}.html`))
+})
+// app.get("/", (request, response) => {
+//     response.send("Hi Aziya")
+// })
+// app.get("/home", (request, response) => {
+//     response.sendFile(path.join(__dirname + "/home.html"))
+// })
+// app.get("/about", (request, response) => {
+//     response.sendFile(path.join(__dirname + "/about.html"))
+// })
+app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
+
+
+
+//Task 2
+
+Render ejs files
+
+const express = require("express")
+const app = express()
+const path = require("path")
+const PORT = 9001
+app.set("view engine","ejs")
+app.get("/:route", (request, response) => {
+    const param1=request.params["route"]
+    response.render(`${param1}`)
+})
+app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
+
+
+
+
