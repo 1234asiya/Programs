@@ -1,5 +1,6 @@
 // Render html File
 Task 1
+------------------------------------------------------------------------------------------------------------
 
 const express = require("express")
 const app = express()
@@ -23,7 +24,7 @@ app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
 
 
 //Task 2
-
+------------------------------------------------------------------------------------------------------------
 Render ejs files
 
 const express = require("express")
@@ -40,7 +41,7 @@ app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
 
 
 //Task 3
-
+------------------------------------------------------------------------------------------------------------
 
 post data in html
 const express = require("express")
@@ -67,6 +68,7 @@ app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
 
 
 //task 4
+------------------------------------------------------------------------------------------------------------
 
 
 Image upload
@@ -99,5 +101,6 @@ app.listen(PORT, () => { console.log("Server running at Port ", PORT) })
 
 
 
-
+//TASK  5
+------------------------------------------------------------------------------------------------------------
 
